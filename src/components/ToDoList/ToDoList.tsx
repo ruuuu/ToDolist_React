@@ -26,7 +26,7 @@ export const ToDoList = (props: { todos: ToDo [], updateToDo: Function, deleteTo
     return props.todos
               .filter((item) => item.isDone)
               .map((item, i) => {
-                return <ToDoListItem  toDoItem={item}   updateToDo={props.updateToDo}  deleteToDo={props.deleteToDo}  key={i}/>  // toDoItem это аргумент функции ToDoListItem 
+                return <ToDoListItem  toDoItem={item}  updateToDo={props.updateToDo}  deleteToDo={props.deleteToDo}  key={i}/>  // toDoItem это аргумент функции ToDoListItem 
               });
   };
   

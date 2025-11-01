@@ -48,7 +48,7 @@ export const ToDoListPage = () => {
   const updateToDo = (todoItem: ToDo) => { // todoItem: выбранная задача
       const newToDos = todos.map((item) => {
           if(item.id === todoItem.id){
-            todoItem.isDone = !todoItem.isDone 
+            item.isDone = !item.isDone 
           }
 
           return item
@@ -60,11 +60,7 @@ export const ToDoListPage = () => {
 
 
   const deleteToDo = (todoItem: ToDo) => {
-    const newToDos = todos.filter((item) => {
-      if(item.id !== todoItem.id){
-        return item
-      }
-    });
+    const newToDos = todos.filter((item) => item.id !== todoItem.id);
 
     setTodos(newToDos)
   };
@@ -73,9 +69,7 @@ export const ToDoListPage = () => {
 
   return (
     <>
-      <Header />
-
-      <Form createNewToDo  = { createNewToDo } />
+      <Form createNewToDo  = {createNewToDo} />
       
       <ToDoList todos = {todos}  updateToDo={updateToDo}  deleteToDo={deleteToDo} />
     </>
