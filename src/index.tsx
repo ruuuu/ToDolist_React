@@ -6,7 +6,33 @@ import './assets/scss/style.scss';
 import { ToDoListPage } from './pages/ToDoListPage';
 import { HomePage } from './pages/HomePage';
 import { Header } from './components/Header/Header';
+import { ToDo } from './models/todo-item';
 
+
+const todos: ToDo[] = [
+
+  {
+    id: 0,
+    text: 'Первое действие',
+    isDone: false
+  },
+  {
+    id: 1,
+    text: 'Второе действие',
+    isDone: true 
+  },
+  {
+    id: 2,
+    text: 'Третье действие',
+    isDone: false 
+  },
+  {
+    id: 3,
+    text: 'Четвертое действие',
+    isDone: true 
+  }
+]
+  
 
 
 
@@ -21,7 +47,7 @@ root.render(
     <BrowserRouter>
     <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage todos={todos}  />} />
         <Route path="/todo" element={<ToDoListPage />} />
       </Routes>
     </BrowserRouter>
