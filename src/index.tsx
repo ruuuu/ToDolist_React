@@ -7,10 +7,13 @@ import { ToDoListPage } from './pages/ToDoListPage';
 import { HomePage } from './pages/HomePage';
 import { Header } from './components/Header/Header';
 import { ToDo } from './models/todo-item';
+import { NotFound } from './pages/404';
+import { ItemDescription } from './pages/ItemDescription';
 
 
-const todos: ToDo[] = [
 
+
+const todos: ToDo[] = [     // массив элементов типа ToDo
   {
     id: 0,
     text: 'Первое действие',
@@ -48,7 +51,9 @@ root.render(
     <Header />
       <Routes>
         <Route path="/" element={<HomePage todos={todos}  />} />
+        <Route path="/list/:id" element={<ItemDescription  todos={todos} />} />        {/* динамический роутинг */}
         <Route path="/todo" element={<ToDoListPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
     <ToDoListPage />

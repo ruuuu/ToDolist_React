@@ -2,7 +2,15 @@ import { ToDo } from "../models/todo-item"
 import { ListItem } from "../components/ListItem/ListItem"
 
 
-export const HomePage = (props: { todos: ToDo [] }) => {
+
+interface ComponentProps {
+   todos: ToDo[]
+}
+
+
+
+//                     вместо props декмпозируя можно писать{ todos },  вместо { todos: ToDo [] } можно писать ComponentProps
+export const HomePage = (props: ComponentProps) => {
 
   return (
     // React Fragment
