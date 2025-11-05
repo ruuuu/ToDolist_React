@@ -56,7 +56,7 @@ const router = createBrowserRouter([
     path: '*',
     element: <NotFound />
   }
-]);
+], { basename: '/app/'});  //  basename добавляем чтобы можно было вылодить на GithabPages(тк там есть кроме домена и поддомен /app/)
 
 
 
