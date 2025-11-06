@@ -19,7 +19,7 @@ export const todoSlice = createSlice({ // редьюсер
   name: 'todoReducer',             // имя редьюсера
   initialState,             // нач состоняие (т е пустой массив)
   reducers: {              // редьсер это методы(createAction, updateAction, deleteAction) котрые меняют состояние(state) todos
-    createAction: (state, action) => {          // action
+    createAction: (state, action: PayloadAction<string>) => {          // action
         const newToDo = {
           id: state.todos.length,
           text: action.payload,                 // передаваемые параметры в метод хрантяся в action.payload 
@@ -29,9 +29,9 @@ export const todoSlice = createSlice({ // редьюсер
         state.todos = [...state.todos,  newToDo] // обновлем массив-переменную состояния todos
     },
 
-    updateAction: (state, action) => {          // action
+    updateAction: (state, action: PayloadAction<ToDo>) => {          // action
         const newToDos = state.todos.map((item) => {
-            if(item.id === action.payload.id){          // todoItem из action.payload
+            if(item.id === action.payload.id){          // todoItem это action.payload
               item.isDone = !item.isDone 
             }
 
@@ -42,10 +42,11 @@ export const todoSlice = createSlice({ // редьюсер
 
     },
 
-    deleteAction: (state, action: PayloadAction<number>) => {       // action
-      
+    deleteAction: (state, action: PayloadAction<ToDo>) => {       // action
+      const newToDos = state.todos.filter((item) => item.id !== action.payload.id);   // todoItem это action.payload
 
-    },
+      state.todos = newToDos
+    }
   },
 })
 

@@ -3,8 +3,8 @@ import  todoReducer  from './feature/todoList'     // импорт редьюс�
 
 
 export const store = configureStore({
-  reducer: {
-    todoList: todoReducer // todoReducer сами придумали название такое, todoList это name из todoList.ts 
+  reducer: {     // добалвение редьюсеров в store
+    todoList: todoReducer         // todoReducer сами придумали название такое, todoList это name из todoList.ts 
   },
 })
 

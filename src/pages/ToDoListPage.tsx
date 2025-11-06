@@ -4,14 +4,14 @@ import { ToDoList } from "../components/ToDoList/ToDoList"
 import { ToDo } from "../models/todo-item"
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store'
-import { createAction, updateAction } from '../feature/todoList'
+import { createAction, deleteAction, updateAction } from '../feature/todoList'
 
 
 
 export const ToDoListPage = () => {
 
 
-  const [ todos, setTodos ] = useState<ToDo[]>([]);        // todos-состоняие у которого элементы типа ToDo
+  //const [ todos, setTodos ] = useState<ToDo[]>([]);        // todos-состоняие у которого элементы типа ToDo
    
   const todoList = useSelector((state: RootState) => state.todoList.todos)              // теперь  вытаскиваем состояние todos из хранилища redux, тип RootState взяли из store.ts из export
 
@@ -29,15 +29,15 @@ export const ToDoListPage = () => {
 
 
   const updateToDo = (todoItem: ToDo) => { // todoItem: выбранная задача
-      dispatch(updateAction(todoItem))
+      
+    dispatch(updateAction(todoItem))
   };
 
 
 
   const deleteToDo = (todoItem: ToDo) => {
-    const newToDos = todos.filter((item) => item.id !== todoItem.id);
-
-    setTodos(newToDos)
+    
+    dispatch(deleteAction(todoItem))
   };
 
 
