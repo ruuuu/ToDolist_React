@@ -9,12 +9,15 @@ export const Header = () => {
     return isActive  ? `${classes.active} ${classes.link}` : classes.link
   }
 
+
+
+
   return (
     <header className={classes.header}>
         <div className={classes.container}>
                                       {/* {`${classes.link} ${classes.active}`} */}
-            <NavLink to="/list" className={getActiveClass}> Home </NavLink>
             <NavLink to="/" className={getActiveClass}> ToDo </NavLink>
+            <NavLink to="/list" className={getActiveClass}> List </NavLink>
         </div>
     </header>
   )

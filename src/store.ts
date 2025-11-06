@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import  todoReducer  from './feature/todolist'     // импорт редьюсера
+import  todoReducer  from './feature/todoList'     // импорт редьюсера
 
 
 export const store = configureStore({
