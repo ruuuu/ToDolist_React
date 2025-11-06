@@ -10,7 +10,8 @@ import { NotFound } from './pages/404';
 import { ViewListItem } from './pages/ViewListItem';
 import { Layout } from './layouts/Layout';
 import { router } from './router';
-
+import { store } from './store'
+import { Provider } from 'react-redux'
 
 
 
@@ -31,18 +32,19 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RouterProvider  router={router} />
-    {/* старый синтакисис роутинга: */}
-    {/* <BrowserRouter> 
-    <Header />
-      <Routes>
-        <Route path="/" element={<ViewListPage todos={todos}  />} />
-        <Route path="/list/:id" element={<ItemDescription  todos={todos} />} />        динамический роутинг
-        <Route path="/todo" element={<ToDoListPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter> */}
-    <ToDoListPage />
+    <Provider store={store}>              {/*  store-хранилище состояния, Provider дает доступ до хранидища состояния*/}
+      <RouterProvider  router={router} />
+      {/* старый синтакисис роутинга: */}
+      {/* <BrowserRouter> 
+      <Header />
+        <Routes>
+          <Route path="/" element={<ViewListPage todos={todos}  />} />
+          <Route path="/list/:id" element={<ItemDescription  todos={todos} />} />        динамический роутинг
+          <Route path="/todo" element={<ToDoListPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter> */}
+    </Provider>
   </React.StrictMode>
 );
 
